@@ -3,11 +3,15 @@ const osmosis = require('osmosis');
 let InfoSave = [];
 osmosis
   .get('https://www.google.co.in/search?q=javascript')
-  .paginate('#navcnt table tr > td a[href]')
-  .find('#botstuff')
-  .set({'related': ['.card-section .brs_col p a']})
+  .paginate('#foot table tr > td a[href]',3)
+  .find('#search')
+  .find('.g .r')
+  .set({
+    'Nomination': 'h3',
+    'Url': 'a@href'
+})
   .data(function(data) {
     console.log(data);
     InfoSave.push(data);
   });
-console.log("Данные сохранены!");
+console.log("Данные выведены в екран!");
